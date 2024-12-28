@@ -45,11 +45,26 @@ class Solution:
         maximum = max(my_map.values())
         return maximum
             
-    
             
+    def majorityBurteForce(self, nums: list[int]) -> int:
+        majority_count = len(nums) // 2
+        for num in nums:
+            maximum = sum(1 for elem in nums if elem == num)
+            if (maximum > majority_count):
+                return num
             
+    def boyerMooreVotingAlgo(self, nums: list[int]) -> int:
+        count = 0
+        condidate = 0
+        for num in nums:
+            if count == 0:
+                condidate = num
+            count +=(1 if num == condidate else -1)
+        return condidate
+        
+
             
-            
+                    
             
             
 def main():
