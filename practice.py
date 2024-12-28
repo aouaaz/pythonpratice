@@ -21,18 +21,40 @@ class Solution:
                 nums[i], nums[j] = nums[j], nums[i]
         return nums
             
+    
+    def majorityElements(self, nums: list[int]) -> int:
+        my_map = {}
+        for item in nums:
+            my_map[item] = my_map.get(item, 0) + 1
+            if (my_map[item] >= len(nums)/2):
+                return item
+            print(f"the map is  {my_map}")
+        maximum = max(my_map.values())
+        return maximum
+            
+    
+            
+            
             
             
             
             
 def main():
+    # Moving Zeros testing 
     num = [0,0,1,2,3,0,0]
     num = [0,0,1,2,0,0,0,3,0]
-    
     test = Solution()
     print(f"Original was  {num}")
     result = test.moveZeroes(num)
     print(f"the output list is {result}")
+    
+    # Finding majority of elements
+    num = [2,2,2,1,1,1,2,2,2]
+    num = [3,2,3]
+    
+
+    result = test.majorityElements(num)
+    print(f"The majority elements of {num} is {result}")
          
 
 
